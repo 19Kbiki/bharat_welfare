@@ -1,0 +1,64 @@
+@import "../../veriables/mixn.scss";
+@import "../../veriables/veriables.scss";
+
+.banner{
+    @include bgImg;
+    .info{
+        padding:  15rem 0;
+        h3{@include headingMix(2rem, 600, $white-color,0.5px)}
+        h1{@include headingMix(5rem, 800, $white-color,0.5px)}
+        p{@include headingMix(1rem, 500, $white-color,0.5px);margin-bottom: 2rem; }
+        button{@include button(1rem, 4rem, 1.1rem, 600, 0.5px, $secondery-color, $white-color,5px)}
+    }
+}
+
+// This is About 
+
+.about{
+    .imges{width: 100%;margin-right: 5rem; position: relative;
+        &::before{z-index: -1; position: absolute; top: 3rem;left: 3rem;right: 0;bottom: 0;content: "";width: 100%;height: 100%;background-color: $prymari-color;}
+    }
+    .info_wrap{
+        width: 100%;
+        padding-top: 3rem;
+        h1{@include headingMix(2.5rem, 700, $secondery-color,0px);text-transform: capitalize;font-style: italic; padding-bottom: 1rem;}
+        h2{@include headingMix(1.1rem,600, $text-black-color,0px)}
+        h3{@include headingMix(2rem, 700, $secondery-color, 0.5px);text-transform:capitalize}
+        p{@include headingMix(1.1rem, 600,$text-black-color, 0.25px)}
+    }
+}
+
+
+// This is Service
+
+.service{
+    padding: 5rem 0;
+    background-color: $sky-color-light;
+    & .heading{
+        text-align: center; margin-bottom: 2rem;
+        h1{@include headingMix(3rem, 700, $secondery-color,0.25px);display: inline;}}
+    & .items{
+         margin:  1rem; height: 100%;
+        img{width: 100%;height:35vh;box-sizing:border-box ;}
+       & .info{
+            background-color: $white-color; padding: 1rem; box-shadow: $box-sdo; height: 35vh;
+            h3{@include headingMix(1.2rem , 800 , $prymari-color, 0.25px)}
+            p{@include headingMix(1rem , 500, $text-black-color, 0.25px); padding-top: 1rem;}
+           
+         }
+    }
+}
+
+// This is Hero
+
+.hero{
+   @include bgImg;
+   .info{
+    text-align: center;padding: 8rem 0;
+    h1{@include headingMix(3rem , 700, $white-color,0.25px);text-transform: uppercase;padding-bottom: 1rem}
+    p{@include headingMix(1.1rem , 500 , $white-color, 0.05px);padding-bottom:3rem}
+    button{@include button(1rem,3rem,1.1rem,600,0.25px,$secondery-color,$white-color,5px)}
+   }
+}
+
+// This is 

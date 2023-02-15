@@ -1,0 +1,22 @@
+@import "../../veriables/mixn.scss";
+@import "../../veriables/veriables.scss";
+
+.navbar.colorChange {position: fixed;width: 100%; animation: animed 0.6s ease-in-out; top: 0; background-color: $white-color;z-index: 4;
+    box-shadow: 0px 4px 11px rgba(0, 0, 0, 0.39);}
+
+@keyframes animed {0% {transform: translateY(-100%);}100% {transform: translateY(0%);}
+}
+
+.navbar{  position: fixed;width: 100%;top: 0;background-color: $white-color; padding: 1rem 0;
+        .top_nav{background-color: $prymari-color;padding: 0.8rem;
+            .top_wrap{display: flex; justify-content: space-between; align-items: center;;
+                .left{display: flex; justify-content: center; align-items: center; 
+                    h5{@include headingMix(1rem,500,$white-color,0.25px);padding-right: 1rem;
+                    i{padding-right: 1rem;}
+                    }
+                }
+                .right{ a{@include button(0.2rem, 2rem, 1rem, 500, 0.25px, $secondery-color,$white-color,5px)}}
+            }
+        }
+        .nav_menu{ul{li{a{font-weight: 600;}}}}
+}

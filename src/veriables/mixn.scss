@@ -1,0 +1,26 @@
+@mixin headingMix ($font , $wegt , $textColor,$letSpace){
+    font-size: $font;
+    font-weight: $wegt;
+    color:$textColor;
+    letter-spacing: $letSpace;
+}
+
+@mixin button($tb,$lr,$fnt,$fnw,$lSp,$bg,$tColor,$br) {
+ padding: $tb $lr;
+    font-size: $fnt;
+    font-weight: $fnw;
+    letter-spacing: $lSp;
+    color: $tColor;
+    border-radius: $br;
+    background-color: $bg;
+
+}
+
+@mixin bgImg {
+     background:linear-gradient(90deg, rgba(0, 0, 0, 0.363) 100%, rgba(255,255,255,1) 100%),
+    url("https://bharatwelfare.org/wp-content/uploads/2022/12/IMG_0064-scaled.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
