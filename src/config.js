@@ -122,3 +122,9 @@ export const formDetails = {
 export const addButton = {
   name : "ADD More"
 }
+
+export const blockList = [
+  {name: "Bamangola"}, {name: "Chanchal - I"}, {name: "Chanchal - II"}, {name: "English Bazar"},{name: "Gazole"},
+  {name: "Habibpur"}, {name: "Harischandrapur - I"}, {name: "Harischandrapur - II"}, {name: "Kaliachak - I"},{name: "Kaliachak - II"},
+  {name: "Kaliachak - III"}, {name: "Maldah"}, {name: "Maldah (Old)"}, {name: "Manikchak"},{name: "Ratua - I"},{name: "Ratua - II"},
+ ]

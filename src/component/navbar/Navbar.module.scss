@@ -7,7 +7,7 @@
 @keyframes animed {0% {transform: translateY(-100%);}100% {transform: translateY(0%);}
 }
 
-.navbar{  position: fixed;width: 100%;top: 0;background-color: $white-color; padding: 1rem 0;
+.navbar{  position: fixed;width: 100%;top: 0;background-color: $white-color; ;
         .top_nav{background-color: $prymari-color;padding: 0.8rem;
             .top_wrap{display: flex; justify-content: space-between; align-items: center;;
                 .left{display: flex; justify-content: center; align-items: center; 
