@@ -23,32 +23,32 @@ function ApplyForm() {
         block: "",
         panchayet: "",
         pin_no: "",
-        qName: "",
-        parsent: "",
-        fMarks: "",
-        university: "",
+   
       },
     ]);
 
     const [input , setInput] = useState([{qName:'', parsent:'', fMarks:'', university:""}]);
    
     const handleChange = (e) => {
-      let formInputs = [[...formInput], [...input],];
+      let formInputs = [[...formInput], [...input]];
       formInputs[e.target.value] = e.target.value;
       setFormInput(formInputs,e);  
       console.log(formInputs,e);
      };
      
-    const addInput =()=>{
+    const addQualification =()=>{
       const add = [...input,{qName:'', parsent:'', fMarks:'', university:""}]
       setInput(add)
       console.log(input)
     }
 
-    const removeInput = (index) =>{
+    const removeQualification = (index) =>{
     const add = [...input];
     add.splice(index,1)
     setInput(add);
+    }
+    const submitData = () =>{
+
     }
 
   return (
@@ -133,12 +133,12 @@ function ApplyForm() {
               return (
                 <>
                   {input.length !== 1 && (
-                    <button type="button" onClick={() => removeInput()}>
+                    <button type="button" onClick={() => removeQualification()}>
                       Remove
                     </button>
                   )}
                   {input.length - 1 === i && (
-                    <button type="button" onClick={() => addInput()}>
+                    <button type="button" onClick={() => addQualification()}>
                       {addButton.name}
                     </button>
                   )}
@@ -161,6 +161,7 @@ function ApplyForm() {
                 </>
               );
             })}
+            <button onClick={submitData}>Submit</button>
           </form>
         </div>
       </section>
