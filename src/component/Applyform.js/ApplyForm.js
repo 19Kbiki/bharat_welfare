@@ -88,17 +88,21 @@ class ApplyForm extends Component {
     }
 
   render() {
+    const personalDetailsArray = [
+    {label:"Firstname", name:'firstname', value:this.state.personalDetails.firstName,onChange: this.inputChange},
+    {label:"Lastnme", name:'lastName', value:this.state.personalDetails.lastName,onChange: this.inputChange},
+    {label:"DOB", name:'dob', value:this.state.personalDetails.dob,onChange: this.inputChange},
+    {label:"E-mail", name:'email', value:this.state.personalDetails.email,onChange: this.inputChange},
+    {label:"Mobile No.",name:'contact', value:this.state.personalDetails.contactNo,onChange: this.inputChange},
+    ]
     
     return (
       <div className='py-48'>
+        <div className='container mx-auto'>
         <form >
           <div> 
           <h1>{formDetails.pName}</h1>
-          <TextField label="Firstname" name='firstName'  value={this.state.personalDetails.firstName}  onChange={ this.inputChange}/>
-          <TextField label="Lastname" name='lastName' value={this.state.personalDetails.lastName}  onChange={this.inputChange}/>
-          <TextField label="DOB" name='dob' value={this.state.personalDetails.dob}  onChange={this.inputChange}/>
-          <TextField label="E-mail" name='email' value={this.state.personalDetails.email}  onChange={this.inputChange}/>
-          <TextField label="Mobile No." name='contactNo' value={this.state.personalDetails.contactNo}  onChange={this.inputChange}/>
+          {personalDetailsArray.map(element=>  <TextField label={element.label} name={element.name}  value={element.value}  onChange={ element.onChange}/>)}
           </div>
           <div> 
           <h1>{formDetails.aName}</h1>
@@ -117,10 +121,22 @@ class ApplyForm extends Component {
            <h1>{formDetails.qName}</h1>
           {this.state.qualificationDetails.map((qualification, index) => (
           <div key={index}>
-          
           <TextField type="text" label="Qualification" name="qualificationName" value={qualification.qualificationName} onChange={(e) => this.inputChange(e, index)}/>
-          <TextField type="text" label="Percentage" name="percentage" value={qualification.percentage} onChange={(e) => this.inputChange(e, index)}/>
-          <TextField type="text" label="Fullmarks" name="fullMarks" value={qualification.fullMarks} onChange={(e) => this.inputChange(e, index)}/>
+
+          <TextField type="text" label="Fullmarks" name="fullMarks" value={qualification.fullMarks} onChange={(e) => this.inputChange(e, index)}  onBlur={(e) => {
+            const percentage = e.target.value / 5;
+            this.setState((prevState) => {
+              const qualificationDetails = prevState.qualificationDetails.slice();
+              qualificationDetails[index] = {
+                ...qualificationDetails[index],
+                percentage: percentage.toFixed(2),
+              };
+              return {
+                qualificationDetails,
+              };
+            });
+          }}/>
+            <TextField type="text" label="Percentage" name="percentage" value={qualification.percentage} onChange={(e) => this.inputChange(e, index)}/>
           <TextField type="text" label="University Name" name="universityName" value={qualification.universityName} onChange={(e) => this.inputChange(e, index)}/>
 
           {/* Remove Qualification */}
@@ -128,11 +144,9 @@ class ApplyForm extends Component {
           <br />
         </div>
       ))}
-    
-      <br />
         <button type='submit' onClick={this.submitData}>submit</button>
         </form>
-
+        </div>
       </div>
   );
   }
