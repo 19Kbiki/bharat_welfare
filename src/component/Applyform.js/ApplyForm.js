@@ -1,171 +1,155 @@
-import React, { useState } from 'react'
+import React, { Component } from 'react'
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
+import { formDetails, addButton ,blockList} from "../../config";
 import { TextField } from '@mui/material';
-import dayjs from "dayjs";
-import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { formDetails, addButton } from "../../config";
-function ApplyForm() {
+class ApplyForm extends Component {
+  constructor (props){
+    super(props);
+    this.state={
+        personalDetails: {firstName:"", lastName:"", dob:'', email:"", contactNo:"",profilePhoto:""},
+        address:{dist:"Malda",block:"",panchayat:"",pinNo:""},
+        qualificationDetails: [{qualificationName: "",percentage:"",fullMarks: "",universityName:""},],  
+    }
+    this.submitData = this.submitData.bind(this)
+    this.inputChange = this.inputChange.bind(this)
+    this.addQualification = this.addQualification.bind(this);
+    this.removeQualification = this.removeQualification.bind(this);
+  }
 
-    const [formInput, setFormInput] = useState([
-      {
-        post: "",
-        fName: "",
-        lname: "",
-        dob: dayjs("2014-08-18T21:11:54"),
-        email: "",
-        contact_no: "",
-        address: "Malda",
-        block: "",
-        panchayet: "",
-        pin_no: "",
-        qName: "",
-        parsent: "",
-        fMarks: "",
-        university: "",
+  inputChange(e, index) {
+    const { name, value } = e.target;
+    this.setState((prevState) => {
+      const qualificationDetails = prevState.qualificationDetails.slice();
+      qualificationDetails[index] = {
+        ...qualificationDetails[index],
+        [name]: value,
+      };
+      return {
+        qualificationDetails,
+      };
+    });
+     this.setState(prevState => ({
+      ...prevState,
+      personalDetails: {
+        ...prevState.personalDetails,
+        [name]: value
       },
-    ]);
+    }));
+    this.setState(prevState => ({
+      ...prevState,
+      address: {
+        ...prevState.address,
+        [name]: value
+      },
+    }));
+  }
 
-    const [input , setInput] = useState([{qName:'', parsent:'', fMarks:'', university:""}]);
-   
-    const handleChange = (e) => {
-      let formInputs = [[...formInput], [...input],];
-      formInputs[e.target.value] = e.target.value;
-      setFormInput(formInputs,e);  
-      console.log(formInputs,e);
-     };
-     
-    const addInput =()=>{
-      const add = [...input,{qName:'', parsent:'', fMarks:'', university:""}]
-      setInput(add)
-      console.log(input)
+  addQualification() {
+    this.setState((prevState) => ({
+      qualificationDetails: [
+        ...prevState.qualificationDetails,
+        { qualificationName: "",percentage:"",fullMarks: "",universityName:"" },
+      ],
+    }));
+  }
+  
+  removeQualification(index) {
+    this.setState((prevState) => {
+      const qualificationDetails = prevState.qualificationDetails.slice();
+      qualificationDetails.splice(index, 1);
+      return {
+        qualificationDetails,
+      };
+    });
+  }
+    submitData (event){
+    event.preventDefault();
+    const data = {
+      personalDetails: {
+       firstName :this.state.personalDetails.firstName,
+       lastName:this.state.personalDetails.lastName,
+       email:this.state.personalDetails.email,
+       contactNo: this.state.personalDetails.contactNo,
+       dob: this.state.personalDetails.dob,
+       profilePhoto: this.state.personalDetails.profilePhoto,
+      },
+      address:{
+        dist: "Malda",
+        block:this.state.address.block,
+        panchayat:this.state.address.panchayat,
+        pinNo:this.state.address.pinNo,
+      },
+      qualificationDetails: this.state.qualificationDetails
+    };
+     console.log(data)
     }
 
-    const removeInput = (index) =>{
-    const add = [...input];
-    add.splice(index,1)
-    setInput(add);
-    }
+  render() {
+    const personalDetailsArray = [
+    {label:"Firstname", name:'firstname', value:this.state.personalDetails.firstName,onChange: this.inputChange},
+    {label:"Lastnme", name:'lastName', value:this.state.personalDetails.lastName,onChange: this.inputChange},
+    {label:"DOB", name:'dob', value:this.state.personalDetails.dob,onChange: this.inputChange},
+    {label:"E-mail", name:'email', value:this.state.personalDetails.email,onChange: this.inputChange},
+    {label:"Mobile No.",name:'contact', value:this.state.personalDetails.contactNo,onChange: this.inputChange},
+    ]
+    
+    return (
+      <div className='py-48'>
+        <div className='container mx-auto'>
+        <form >
+          <div> 
+          <h1>{formDetails.pName}</h1>
+          {personalDetailsArray.map(element=>  <TextField label={element.label} name={element.name}  value={element.value}  onChange={ element.onChange}/>)}
+          </div>
+          <div> 
+          <h1>{formDetails.aName}</h1>
+          <TextField disabled name='dist'  value={this.state.address.dist}  onChange={ this.inputChange}/>
+          <FormControl>
+          <InputLabel id="demo-simple-select-label">Select Block</InputLabel>
+          <Select className='w-96' id="demo-simple-select" labelId="demo-simple-select-label" name='block' value={this.state.address.block}  onChange={this.inputChange}>
+            {blockList.map(element=> <MenuItem value={element.name}>{element.name}</MenuItem> )}    
+          </Select>
+          </FormControl>
+          <TextField label="Panchayet" name='panchayat' value={this.state.address.panchayat}  onChange={this.inputChange}/>
+          <TextField label="Pin Code" name='pinNo' value={this.state.address.pinNo}  onChange={this.inputChange}/>
+          </div>
+            {/* Add Qualification */}
+           <button type="button" onClick={this.addQualification}>{addButton.name}</button>
+           <h1>{formDetails.qName}</h1>
+          {this.state.qualificationDetails.map((qualification, index) => (
+          <div key={index}>
+          <TextField type="text" label="Qualification" name="qualificationName" value={qualification.qualificationName} onChange={(e) => this.inputChange(e, index)}/>
 
-  return (
-    <div>
-      <section className="pt-60 bg-[#DFF6FF]">
-        <div className="container mx-auto">
-          <form action="">
-            <div className="post">
-              <FormControl className="w-96">
-                <InputLabel id="demo-simple-select-label">
-                  Select Post
-                </InputLabel>
-                <Select labelId="demo-simple-select-label" id="demo-simple-select" name="post" value={formInput.post} label="Select Post" onChange={handleChange}>
-                  <MenuItem value={"Devops"}>DevOps</MenuItem>
-                  <MenuItem value={"Java Developer"}>Java Developer</MenuItem>
-                  <MenuItem value={"Front-end Developer"}>Front-end Developer</MenuItem>
-                </Select>
-              </FormControl>
-              <FormControl><input type="file" placeholder="" /></FormControl>
-            </div>
+          <TextField type="text" label="Fullmarks" name="fullMarks" value={qualification.fullMarks} onChange={(e) => this.inputChange(e, index)}  onBlur={(e) => {
+            const percentage = e.target.value / 5;
+            this.setState((prevState) => {
+              const qualificationDetails = prevState.qualificationDetails.slice();
+              qualificationDetails[index] = {
+                ...qualificationDetails[index],
+                percentage: percentage.toFixed(2),
+              };
+              return {
+                qualificationDetails,
+              };
+            });
+          }}/>
+            <TextField type="text" label="Percentage" name="percentage" value={qualification.percentage} onChange={(e) => this.inputChange(e, index)}/>
+          <TextField type="text" label="University Name" name="universityName" value={qualification.universityName} onChange={(e) => this.inputChange(e, index)}/>
 
-            <div className="personal_info ">
-              <h1>{formDetails.pName}</h1>
-              <FormControl className="w-96">
-                <TextField label="Fastname" name='fName' value={formInput.fName} onChange={handleChange}/>
-              </FormControl>
-              <FormControl className="w-96">
-                <TextField label="Lastname" name='lname' value={formInput.lname} onChange={handleChange} />
-              </FormControl>
-              <FormControl className="w-96">
-               
-                <TextField name='dob' label="DOB" value={formInput.dob} onChange={handleChange}  />
-                  
-          
-              </FormControl>
-              <FormControl className="w-96">
-                <TextField label="E-mail" name='lname' value={formInput.email} onChange={handleChange} />
-              </FormControl>
-              <FormControl className="w-96">
-                <TextField label="Mobile No" name='lname' value={formInput.contact_no} onChange={handleChange} />
-              </FormControl>
-            </div>
-
-            <div className="address ">
-              <h1>{formDetails.aName}</h1>
-              <FormControl className="w-96">
-                <TextField label="Address" name='address' value={formInput.address} onChange={handleChange} />
-              </FormControl>
-              <FormControl className="w-96">
-                <InputLabel id="demo-simple-select-label">Block</InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={formInput.block}
-                  label="Select Post"
-                  onChange={handleChange}
-                >
-                  <MenuItem value={"Devops"}>Ratua I</MenuItem>
-                  <MenuItem value={"Java Developer"}>Ratua II</MenuItem>
-                  <MenuItem value={"Front-end Developer"}>Manikchak</MenuItem>
-                </Select>
-              </FormControl>
-              <FormControl className="w-96">
-                <InputLabel id="demo-simple-select-label">panchayet</InputLabel>
-                <Select
-                  labelId="demo-simple-select-label"
-                  id="demo-simple-select"
-                  value={formInput.panchayet}
-                  label="Select Post"
-                  onChange={handleChange}
-                >
-                  <MenuItem value={"Ratua I"}>Ratua I</MenuItem>
-                  <MenuItem value={"Ratua II"}>Ratua II</MenuItem>
-                  <MenuItem value={"manikchak"}>Manikchak</MenuItem>
-                </Select>
-              </FormControl>
-              <FormControl className="w-96">
-                <TextField label="Pin code." name='pin_no' value={formInput.pin_no} onChange={handleChange} />
-              </FormControl>
-            </div>
-            {input.map((x, i) => {
-              return (
-                <>
-                  {input.length !== 1 && (
-                    <button type="button" onClick={() => removeInput()}>
-                      Remove
-                    </button>
-                  )}
-                  {input.length - 1 === i && (
-                    <button type="button" onClick={() => addInput()}>
-                      {addButton.name}
-                    </button>
-                  )}
-
-                  <div className="address ">
-                    <h1>{formDetails.qName}</h1>
-                    <FormControl className="w-96">
-                      <TextField label="Qualification" name="qname" value={formInput.qName} onChange={handleChange} />
-                    </FormControl>
-                    <FormControl className="w-96">
-                      <TextField label="Persentege" name="parsent" value={formInput.parsent} onChange={handleChange} />
-                    </FormControl>
-                    <FormControl className="w-96">
-                      <TextField label="fullmarks" name="fMarks" value={formInput.fMarks} onChange={handleChange} />
-                    </FormControl>
-                    <FormControl className="w-96">
-                      <TextField label="university" name="university" value={formInput.university} onChange={handleChange} />
-                    </FormControl>
-                  </div>
-                </>
-              );
-            })}
-          </form>
+          {/* Remove Qualification */}
+          {index > 0 && (<button type="button" onClick={() => this.removeQualification(index)}>Remove</button>)}
+          <br />
         </div>
-      </section>
-    </div>
+      ))}
+        <button type='submit' onClick={this.submitData}>submit</button>
+        </form>
+        </div>
+      </div>
   );
+  }
 }
 
 export default ApplyForm
