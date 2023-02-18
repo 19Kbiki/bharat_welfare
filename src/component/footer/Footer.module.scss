@@ -1,0 +1,23 @@
+@import "../../veriables/mixn.scss";
+@import "../../veriables/veriables.scss";
+
+footer{padding: 2rem  0; background-color: $sky-color-light; .footer_wrap{display: grid;grid-template-columns: repeat(3,1fr); align-items: flex-start ; justify-items: center;
+.items{img{width: 15%;} h1{font-size: 1.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.50px; }
+.social_icon{
+    margin: 2rem 0;
+    li{display: inline;padding-right: 0.5rem; & a{background-color: $prymari-color;color: $white-color; padding: 0.8rem 1rem;font-size: 1.1rem;}
+}
+}
+h1{
+    padding-bottom: 1rem;
+}
+ul{
+    li{
+        padding-bottom: 0.5rem ;
+        i{
+            padding-right: 0.5rem;
+        }
+    }
+}
+}
+}}

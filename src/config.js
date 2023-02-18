@@ -104,13 +104,90 @@ export const hero = {
 }
 
 
-export const footerInfo= [
+export const footerInfo = [
   {
-    imgUrl: "https://bharatwelfare.org/wp-content/uploads/2022/12/02-60x67.png",
-    pera:"We The Bharat Welfare Associates Have Faith In Our Self That We Can Change The India for Our  Farmers.Come Join Us to Change The India."
- 
-  }
-]
+    logoUrl:
+      "https://bharatwelfare.org/wp-content/uploads/2022/12/png-267x300.png",
+    para: "We partner with the best seed–manufacturing companies in India to help farmers purchase quality seeds.",
+    favIcon: [
+      {
+        name: "fa-brands fa-facebook-f",
+        url: "https://www.facebook.com/bharatwelfarengo",
+      },
+      {
+        name: "fa-brands fa-instagram",
+        url: "https://www.instagram.com/bharatwelfarengo",
+      },
+      {
+        name: "fa-brands fa-linkedin",
+        url: "https://www.linkedin.com/in/bharat-welfare-874a33266",
+      },
+      {
+        name: "fa-brands fa-youtube",
+        url: "https://www.facebook.com/bharatwelfarengo",
+      },
+    ],
+    contact: [],
+
+    menu: [
+      { url: "/", name: "" },
+      { url: "/", name: "" },
+      { url: "/", name: "" },
+      { url: "/", name: "" },
+    ],
+  },
+
+  {
+    logoUrl: "",
+    para: "",
+    favIcon: [
+      { name: "", url: "" },
+      { name: "", url: "" },
+      { name: "", url: "" },
+      { name: "", url: "" },
+    ],
+    head: "contact",
+    contact: [
+      { icon: "fa-solid fa-phone", name: "+91-9832856162" },
+      { icon: "fa-solid fa-envelope", name: "bhwngo@gmail.com" },
+      {
+        icon: "fa-sharp fa-solid fa-location-dot",
+        name: "Mathurapur, Malda , West Bengal, 732203",
+      },
+    ],
+    menu: [
+      { url: "/", name: "" },
+      { url: "/", name: "" },
+      { url: "/", name: "" },
+      { url: "/", name: "" },
+    ],
+  },
+
+  {
+    logoUrl: "",
+    para: "",
+    favIcon: [
+      { name: "", url: "" },
+      { name: "", url: "" },
+      { name: "", url: "" },
+      { name: "", url: "" },
+    ],
+
+    head: "Menu",
+    menu: [
+      { url: "/", name: "Home" },
+      { url: "/", name: "About" },
+      { url: "/", name: "service" },
+      { url: "/", name: "Contact" },
+    ],
+    contact: [
+      { icon: "", name: "" },
+      { icon: "", name: "" },
+      { icon: "", name: "" },
+    ],
+  },
+];
+
 
 export const formDetails = {
   pName: "Personal Details :",
@@ -118,6 +195,7 @@ export const formDetails = {
   qName: "Qualification Details  :"
 
 }
+
 
 export const addButton = {
   name : "ADD Qualification"
