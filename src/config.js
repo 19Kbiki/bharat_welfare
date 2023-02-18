@@ -113,14 +113,14 @@ export const footerInfo= [
 ]
 
 export const formDetails = {
-  pName: "Personal Details",
-  aName: "Address ",
-  qName: "Qualification Details"
+  pName: "Personal Details :",
+  aName: "Address :",
+  qName: "Qualification Details  :"
 
 }
 
 export const addButton = {
-  name : "ADD More"
+  name : "ADD Qualification"
 }
 
 export const blockList = [
@@ -128,3 +128,5 @@ export const blockList = [
   {name: "Habibpur"}, {name: "Harischandrapur - I"}, {name: "Harischandrapur - II"}, {name: "Kaliachak - I"},{name: "Kaliachak - II"},
   {name: "Kaliachak - III"}, {name: "Maldah"}, {name: "Maldah (Old)"}, {name: "Manikchak"},{name: "Ratua - I"},{name: "Ratua - II"},
  ]
+
+ export const positionList = [{ name: "DevOps" }, { name: "Java Developer" },{name:"paython Developer"}];
