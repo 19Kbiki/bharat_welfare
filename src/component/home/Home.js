@@ -72,7 +72,7 @@ function Home() {
                 <div>
                   <Zoom>
                     <div className={styles.items}>
-                      <img src={ele.imgUrl} alt="" />
+                      <div className={styles.imges}><img src={ele.imgUrl} alt="" /></div>
                       <div className={styles.info}>
                         <h3>{ele.name}</h3>
                         <p>{ele.prea}</p>

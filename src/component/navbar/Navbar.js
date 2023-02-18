@@ -51,8 +51,8 @@ export class Navbar extends Component {
                   <div className="container mx-auto"> 
                   <div className={styles.top_wrap}>
                     <div className={styles.left}>
-                      <h5><i className="fa-solid fa-phone"></i>{companyDetails.email}</h5>
-                      <h5><i className="fa-solid fa-envelope"></i>{companyDetails.contactNo}</h5>
+                      <h5><i className="fa-solid fa-phone"></i>{companyDetails.contactNo}</h5>
+                      <h5><i className="fa-solid fa-envelope"></i>{companyDetails.email}</h5>
                     </div>
                     <div className={styles.right}><Link to={this.button.url} >{this.button.btn}</Link></div>
                   </div>  
