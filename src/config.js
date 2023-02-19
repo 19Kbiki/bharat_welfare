@@ -208,3 +208,52 @@ export const blockList = [
  ]
 
  export const positionList = [{ name: "DevOps" }, { name: "Java Developer" },{name:"paython Developer"}];
+
+
+ export const temMemberDetails = [
+//   {profileUrl:"https://bharatwelfare.org/wp-content/uploads/elementor/thumbs/WhatsApp-Image-2022-12-28-at-12.01.05-PM-pztl656v4rqwopxuu628i7h5ryj48wmihyotxsk054.jpeg",
+//   name: "Mr. Tapos  Karmakar",role: "chairman", dec:"  The oldest classical British and Latin writing had little or no space between      ",
+// socilaLink:[
+//   {  name: "fa-brands fa-facebook-f", 
+//         url: "https://www.facebook.com/bharatwelfarengo",},
+//      {
+//         name: "fa-brands fa-instagram",
+//         url: "https://www.instagram.com/bharatwelfarengo",
+//       },          
+// ]
+// },
+  {profileUrl:"https://bharatwelfare.org/wp-content/uploads/elementor/thumbs/WhatsApp-Image-2022-12-28-at-12.01.05-PM-pztl656v4rqwopxuu628i7h5ryj48wmihyotxsk054.jpeg",
+  name: "Mr. Chironjit Kundu",role: "Vice-chairman", dec:"The oldest classical British and Latin writing had little or no space between ",
+    socilaLink:[
+        {  name: "fa-brands fa-facebook-f",
+            url: "https://www.facebook.com/bharatwelfarengo",} ,
+          {
+            name: "fa-brands fa-instagram",
+            url: "https://www.instagram.com/bharatwelfarengo",
+          },                   
+    ]
+},
+  {profileUrl:"https://bharatwelfare.org/wp-content/uploads/elementor/thumbs/WhatsApp-Image-2022-12-28-at-11.34.24-AM-pztl7y1q8c7oxtbnbg3hs93yrjng00rzqvpc1vvu7s.jpeg",
+  name: "Mr. Abhishek Mandal",role: "Asst Secretary", dec:"The oldest classical British and Latin writing had little or no space between ",
+    socilaLink:[
+         {  name: "fa-brands fa-facebook-f",
+            url: "https://www.facebook.com/bharatwelfarengo",},
+          {
+            name: "fa-brands fa-instagram",
+            url: "https://www.instagram.com/bharatwelfarengo",
+          },  
+    ]
+},
+  {profileUrl:"https://bharatwelfare.org/wp-content/uploads/elementor/thumbs/WhatsApp-Image-2022-12-28-at-11.28.16-AM-pztl7kvzknpof9urgaeptcfig5gb09br12kjc0fcmw.jpeg",
+  name: "Mr. Krishnendu Das",role: "Treasure", dec:"The oldest classical British and Latin writing had little or no space between ",
+    socilaLink:[
+         {  name: "fa-brands fa-facebook-f",
+            url: "https://www.facebook.com/bharatwelfarengo",},
+          {
+            name: "fa-brands fa-instagram",
+            url: "https://www.instagram.com/bharatwelfarengo",
+          },  
+    ]
+},
+  // {profileUrl:"https://bharatwelfare.org/wp-content/uploads/elementor/thumbs/WhatsApp-Image-2022-12-28-at-12.01.05-PM-pztl656v4rqwopxuu628i7h5ryj48wmihyotxsk054.jpeg",name: "Mr. Babor Ali ",role: "Member",}
+ ]

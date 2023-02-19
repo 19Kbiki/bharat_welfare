@@ -65,3 +65,18 @@
 }
 
 // This is 
+
+.team{padding: 5rem 0; .head{ text-align: center; h1{@include  headingMix(3rem, 500, $prymari-color, 0.25px);padding-bottom: 3rem; span{font-weight: 700;}}} 
+.team_wrap{display: grid;grid-template-columns: repeat(3,1fr); justify-items: center; column-gap: 3rem; 
+    .team_card{display: flex; box-shadow:$box-sdo;  border-radius: 5px;
+        .profile{  overflow: hidden;border-top-left-radius: 5px ; border-bottom-left-radius: 5px; img{width: 100%; transform: scale(2); }}
+        .info{padding: 1rem;}
+          .name{display: flex;justify-content: space-between;
+            h2{@include  headingMix(1.3rem, 700, $prymari-color, 0.25px);padding-bottom: 0.5rem;}
+             ul{display: flex; li{margin: 0 0.3rem; a{font-size: 1rem;   color: #0000008f; font-weight: 800}}}
+            }
+            h3{@include  headingMix(1.1rem, 600, $prymari-color, 0.25px);padding-bottom: 1rem;}
+            p{@include  headingMix(1rem, 500, $prymari-color, 0.5px)}
+        }
+    }
+}

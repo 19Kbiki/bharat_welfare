@@ -4,12 +4,12 @@ import Slider from "react-slick";
 import {bannerInfo} from "../../config"
 import {about} from "../../config"
 import { aboutImg } from "../../config";
-import {serviceHeading} from "../../config";
-import { serviceInfo } from "../../config";
+import { serviceInfo,temMemberDetails,serviceHeading } from "../../config";
 import {hero} from "../../config"
 import Zoom from "react-reveal/Zoom";
 import Fade from "react-reveal/Fade";
 import Reveal from "react-reveal/Reveal";
+import { Link } from 'react-router-dom';
 function Home() {
   document.title= "Bharat Welfare - Home"
 
@@ -95,6 +95,35 @@ function Home() {
             <button>{hero.btn}</button>
           </div>
         </div>
+      </section>
+
+      <section className={styles.team}>
+      <div className='container mx-auto'>
+        <div className={styles.head}>
+          <h1>Our Team<span> Members</span></h1>
+        </div>
+        <div className={styles.team_wrap}>
+        {temMemberDetails.map((team)=>{
+          return(<>
+          <div className={styles.team_card}>
+            <div className={styles.profile}>
+             <img src={team.profileUrl} alt=""/>
+            </div>
+            <div className={styles.info}>
+          <div className={styles.name}>
+          <h2>{team.name}</h2>
+          <ul> {team.socilaLink.map(icon => <li><Link to={icon.url}><i className={icon.name}></i></Link></li>)}</ul>
+          </div>
+          <h3>{team.role}</h3>
+          <p>{team.dec}</p>
+            </div>
+          </div>
+        
+          </>)
+        })}
+        </div>
+     
+      </div>
       </section>
     </div>
   );
