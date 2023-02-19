@@ -14,7 +14,7 @@ export  const navMenu = [
     {  url: "/", name: "Home" },
     {  url: "/", name: "About" },
     {  url: "/", name: "service" },
-    {  url: "/", name: "Contact" },
+    {  url: "/contact", name: "Contact" },
   ];
 
 export const about = [
