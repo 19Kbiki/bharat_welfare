@@ -1,6 +1,6 @@
 export const companyDetails = {
   contactNo: "+91-9832856162",
-  email: "bhwngo@gmail.com ",
+  email: "admin@bharatwelfare.org",
   address: "Mathurapur, Manikchak, Malda 732203 ",
   logoUrl: "https://bharatwelfare.org/wp-content/uploads/2022/12/png-267x300.png",
 };
@@ -149,7 +149,7 @@ export const footerInfo = [
     head: "contact",
     contact: [
       { icon: "fa-solid fa-phone", name: "+91-9832856162" },
-      { icon: "fa-solid fa-envelope", name: "bhwngo@gmail.com" },
+      { icon: "fa-solid fa-envelope", name: "admin@bharatwelfare.org" },
       {
         icon: "fa-sharp fa-solid fa-location-dot",
         name: "Mathurapur, Malda , West Bengal, 732203",
